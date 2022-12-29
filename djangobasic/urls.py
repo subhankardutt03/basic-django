@@ -18,17 +18,16 @@ from django.urls import path
 from djangobasic import views
 
 urlpatterns = [
-    path('',views.masterPage),
+    path('', views.HomePage, name="home"),
     path('admin/', admin.site.urls),
-    path('aboutus/',views.aboutUs),
-    path('course/',views.course),
-    path('course/<int:course_id>',views.courseDetailsAsInt),
-    path('course/<str:course_name>',views.courseDetailsAsString),
-    path('course/<slug:course_slug>',views.courseDetailsAsSlug),
-    path('emplist/',views.EmpFetch),
-    path('home/',views.HomePage,name="home"),
-    path('about/',views.AboutPage,name="about"),
-    path('service/',views.ServicePage,name="service"),
-    path('team/',views.TeamPage,name="team"),
-    path('contact/',views.ContactPage,name="contact")
+    path('aboutus/', views.aboutUs),
+    path('course/', views.course),
+    path('course/<int:course_id>', views.courseDetailsAsInt),
+    path('course/<str:course_name>', views.courseDetailsAsString),
+    path('course/<slug:course_slug>', views.courseDetailsAsSlug),
+    path('emplist/', views.EmpFetch),
+    path('about/', views.AboutPage, name="about"),
+    path('service/', views.ServicePage, name="service"),
+    path('team/', views.TeamPage, name="team"),
+    path('contact/', views.ContactPage, name="contact")
 ]

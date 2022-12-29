@@ -897,3 +897,9 @@ button {
   margin-top: 90px;
 }
 
+.active a{
+    background-color: #1b5a8d;
+}
+.header_section .navbar-light .navbar-nav .active .nav-link {
+    color: white;
+}
