@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 
 def aboutUs(request):
@@ -30,7 +30,22 @@ def EmpFetch(request):
     return render(request,'allEmp.html',data)
 
 def HomePage(request):
-    return render(request,'index.html')
+    # if request.method == 'GET':
+    #     output = request.GET.get('output')
+    try:
+        if request.method == 'POST':
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            phone = request.POST.get('phone')
+            
+            data = {
+                'name':name,
+                'email':email,
+                'phone':phone
+            }
+    except:
+        pass
+    return render(request,'index.html',data)
 
 def AboutPage(request):
     return render(request,'about.html')
@@ -42,4 +57,23 @@ def TeamPage(request):
     return render(request,'team.html')
 
 def ContactPage(request):
-    return render(request,'contact.html')
+    data={}
+    try:
+        # name = request.GET.get('name')
+        # email = request.GET.get('email')
+        # phone = request.GET.get('phone')
+        if request.method == "POST":
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            phone = request.POST.get('phone')
+            data = {
+                'name': name,
+                'email': email,
+                'phone': phone 
+            }
+            # allData = f"{name}|{email}|{phone}"
+            # url = '/?output={}'.format(allData)
+            # return HttpResponseRedirect(url)
+    except:
+        pass
+    return render(request,'contact.html',data)

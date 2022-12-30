@@ -9,11 +9,16 @@
       <div class="row">
         <div class="col-md-6 padding_left_0">
           <div class="mail_section">
-            <input type="" class="mail_text_1" placeholder="Name" name="Name">
-            <input type="" class="mail_text_1" placeholder="Phone Number" name="Phone Number">
-            <input type="" class="mail_text_1" placeholder="Email" name="Email">
-            <textarea class="massage_text" placeholder="Message" rows="5" id="comment" name="Message"></textarea>
-            <div class="send_bt"><a href="#">send</a></div>
+            <form method="POST" action="{% url 'home' %}">
+              {% csrf_token %}
+              <input type="text" class="mail_text_1" placeholder="Name" name="name" value="{{name}}">
+              <input type="text" class="mail_text_1" placeholder="Phone Number" name="phone" value="{{phone}}">
+              <input type="email" class="mail_text_1" placeholder="Email" name="email" value="{{email}}">
+              <!-- <textarea class="massage_text" placeholder="Message" rows="5" id="comment" name="Message"></textarea> -->
+              <button class="btn btn-info mt-3" type="submit">Submit</button>
+              <br><br>
+              <!-- <input type="text" value="{{data}}" class="form-control"> -->
+            </form>
           </div>
         </div>
         <div class="col-md-6 padding_0">
